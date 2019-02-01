@@ -2,19 +2,22 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import auth from './common/auth'
 
-import { PostDetail, PostForm, PostList } from './entities'
+import { PostDetail, PostForm, PostList, PacienteList, PacienteDetail, PacienteForm } from './entities'
 import { Home, Login, NotFound } from './components'
 
 const routes = [
   { name: 'Home', path: '/', component: Home, meta: { public: true } },
   // solo usuarios administradores pueden crear o editar posts
   { name: 'PostCreate', path: '/posts/new', component: PostForm, meta: { authority: 'ADMIN' } },
-  // solo usuarios autenticados pueden ver el detalle de un post
   { name: 'PostDetail', path: '/posts/:id', component: PostDetail },
   // solo usuarios administradores pueden crear o editar posts
   { name: 'PostUpdate', path: '/posts/:id/edit', component: PostForm, meta: { authority: 'ADMIN' } },
   // usuarios anónimos pueden ver el listado de posts
   { name: 'PostList', path: '/posts', component: PostList, meta: { public: true } },
+  { name: 'PacienteList', path: '/pacientes', component: PacienteList, meta: {authority: 'ADMIN'} },
+  { name: 'PacienteDetail', path: '/pacientes/:id', component: PacienteDetail, meta: {authority: 'ADMIN'} },
+  { name: 'PacienteForm', path: '/pacientes/:id/edit', component: PacienteForm, meta: {authority: 'ADMIN'} },
+  { name: 'PacienteCreate', path: '/pacientes/new', component: PacienteForm, meta: {authority: 'ADMIN'} },
   { name: 'Login', path: '/login', component: Login, meta: { public: true, isLoginPage: true }},
   { path: '*', component: NotFound, meta: { public: true } }
 ]

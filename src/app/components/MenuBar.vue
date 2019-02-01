@@ -14,12 +14,16 @@
           :to="{ name: 'PostList' }"
           exact>Posts</b-nav-item>
         <b-nav-item
+          :to="{ name: 'PacienteList' }"
+          exact>Pacientes</b-nav-item>
+        <b-nav-item
           v-if="!isLogged"
           :to="{ name: 'Login' }"
           exact>Login</b-nav-item>
         <b-nav-item
           v-if="isLogged"
           @click="logout()">Logout</b-nav-item>
+        
       </b-navbar-nav>
 
       <b-navbar-nav class="ml-auto">
