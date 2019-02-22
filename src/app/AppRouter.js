@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import auth from './common/auth'
 
-import { PostDetail, PostForm, PostList, PacienteList, PacienteDetail, PacienteForm } from './entities'
+import { PostDetail, PostForm, PostList, PacienteList, PacienteDetail, PacienteForm, SesionList, SesionDetail } from './entities'
 import { Home, Login, NotFound } from './components'
 
 const routes = [
@@ -19,6 +19,8 @@ const routes = [
   { name: 'PacienteForm', path: '/pacientes/:id/edit', component: PacienteForm, meta: {authority: 'ADMIN'} },
   { name: 'PacienteCreate', path: '/pacientes/new', component: PacienteForm, meta: {authority: 'ADMIN'} },
   { name: 'Login', path: '/login', component: Login, meta: { public: true, isLoginPage: true }},
+  { name: 'SesionList', path: '/sesiones', component: SesionList, meta: {authority: 'ADMIN'} },
+  { name: 'SesionDetail', path: '/sesiones/:id', component: SesionDetail, meta: {authority: 'ADMIN'} },
   { path: '*', component: NotFound, meta: { public: true } }
 ]
 
